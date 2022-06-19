@@ -710,7 +710,6 @@ class JsonClassCodegenProcessorTest {
               public <init>(com.squareup.moshi.Moshi);
           }
           -if class testPackage.DefaultParams
-          -keepnames class kotlin.jvm.internal.DefaultConstructorMarker
           -keepclassmembers class testPackage.DefaultParams {
               public synthetic <init>(java.lang.String,int,kotlin.jvm.internal.DefaultConstructorMarker);
           }
@@ -725,7 +724,6 @@ class JsonClassCodegenProcessorTest {
                 public <init>(com.squareup.moshi.Moshi,java.lang.reflect.Type[]);
             }
             -if class testPackage.Complex
-            -keepnames class kotlin.jvm.internal.DefaultConstructorMarker
             -keepclassmembers class testPackage.Complex {
                 public synthetic <init>(java.lang.String,java.util.List,java.lang.Object,int,kotlin.jvm.internal.DefaultConstructorMarker);
             }
@@ -740,7 +738,6 @@ class JsonClassCodegenProcessorTest {
               public <init>(com.squareup.moshi.Moshi);
           }
           -if class testPackage.MultipleMasks
-          -keepnames class kotlin.jvm.internal.DefaultConstructorMarker
           -keepclassmembers class testPackage.MultipleMasks {
               public synthetic <init>(long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,long,int,int,int,kotlin.jvm.internal.DefaultConstructorMarker);
           }

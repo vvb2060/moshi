@@ -23,7 +23,7 @@ import com.squareup.kotlinpoet.ClassName
  * - Keeping the generated adapter class name + public constructor for reflective lookup.
  * - Keeping any used JsonQualifier annotations and the properties they are attached to.
  * - If the target class has default parameter values, also keeping the associated synthetic
- *   constructor as well as the DefaultConstructorMarker type Kotlin adds to it.
+ *   constructor.
  *
  * Each rule is intended to be as specific and targeted as possible to reduce footprint, and each is
  * conditioned on usage of the original target type (implicitly for keepnames and keepclassmembers,
@@ -70,13 +70,11 @@ public data class ProguardConfig(
       // If the target class has default parameter values, keep its synthetic constructor
       //
       // -if class {the target class}
-      // -keepnames class kotlin.jvm.internal.DefaultConstructorMarker
       // -keepclassmembers @com.squareup.moshi.JsonClass @kotlin.Metadata class * {
       //     synthetic <init>(...);
       // }
       //
       appendLine("-if class $targetName")
-      appendLine("-keepnames class kotlin.jvm.internal.DefaultConstructorMarker")
       appendLine("-keepclassmembers class $targetName {")
       val allParams = targetConstructorParams.toMutableList()
       val maskCount = if (targetConstructorParams.isEmpty()) {
