@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
 public final class Util {
   public static final Set<Annotation> NO_ANNOTATIONS = Collections.emptySet();
   public static final Type[] EMPTY_TYPE_ARRAY = new Type[] {};
-  @Nullable public static final Class<?> DEFAULT_CONSTRUCTOR_MARKER;
+  public static final Class<?> DEFAULT_CONSTRUCTOR_MARKER;
   @Nullable private static final Class<? extends Annotation> METADATA;
 
   /** A map from primitive types to their corresponding wrapper types. */
@@ -67,12 +67,7 @@ public final class Util {
 
     // We look up the constructor marker separately because Metadata might be (justifiably)
     // stripped by R8/Proguard but the DefaultConstructorMarker is still present.
-    Class<?> defaultConstructorMarker = null;
-    try {
-      defaultConstructorMarker = Class.forName("kotlin.jvm.internal.DefaultConstructorMarker");
-    } catch (ClassNotFoundException ignored) {
-    }
-    DEFAULT_CONSTRUCTOR_MARKER = defaultConstructorMarker;
+    DEFAULT_CONSTRUCTOR_MARKER = kotlin.jvm.internal.DefaultConstructorMarker.class;
 
     Map<Class<?>, Class<?>> primToWrap = new LinkedHashMap<>(16);
 
