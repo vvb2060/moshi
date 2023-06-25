@@ -143,7 +143,6 @@ allprojects {
   plugins.withId("com.vanniktech.maven.publish.base") {
     configure<MavenPublishBaseExtension> {
       publishToMavenCentral(SonatypeHost.S01, automaticRelease = true)
-      signAllPublications()
       pom {
         description.set("A modern JSON API for Android and Java")
         name.set(project.name)
